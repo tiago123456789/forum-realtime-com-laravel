@@ -7,7 +7,7 @@ pipeline {
     environment {
         CI=true
     }
-    stages {
+    stages { 
         stage('Build') {
             steps {
                 sh 'curl -sS https://getcomposer.org/installer -o composer-setup.php'
