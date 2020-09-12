@@ -6,12 +6,21 @@ pipeline {
         }
     }
     stages { 
-        stage('Build') {
+        stage('install packages necessaries') {
             steps { 
                 sh 'apt-get update -y && apt-get install -y libxml2-dev && apt-get install -y git'
                 sh 'curl -sS https://getcomposer.org/installer -o composer-setup.php'
                 sh 'php composer-setup.php'
+            }
+        }
+        stage('Build') {
+            steps { 
                 sh 'php composer.phar install'
+            }
+        }
+        stage('Tests') {
+            steps { 
+                sh './vendor/bin/phpunit'
             }
         }
       
