@@ -2,11 +2,8 @@ pipeline {
     agent {
         docker {
             image 'php:7.3'
+            args '-u root:sudo'
         }
-    }
-    environment {
-        CI=true  
-        HOME = '.'
     }
     stages { 
         stage('Build') {
