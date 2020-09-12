@@ -11,7 +11,7 @@ pipeline {
     stages { 
         stage('Build') {
             steps { 
-                sh 'apt-get install git -y'
+                sh 'apt-get update && apt-get install git -y'
                 sh 'curl -sS https://getcomposer.org/installer -o composer-setup.php'
                 sh 'php composer-setup.php'
                 sh 'php composer.phar install'
