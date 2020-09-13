@@ -5,6 +5,9 @@ pipeline {
             args '-u root:sudo'
         }
     }
+    options {
+        skipDefaultCheckout true
+    }
     environment {
         CI=true
     }
