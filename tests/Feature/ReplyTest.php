@@ -29,20 +29,20 @@ class ReplyTest extends TestCase
             ->assertJson($replies->toArray());
     }
 
-    public function testInclusaoDeNovaResposta()
-    {
-        $user = factory(\App\User::class)->create();
-        $thread = factory(\App\Thread::class)->create();
+    // public function testInclusaoDeNovaResposta()
+    // {
+    //     $user = factory(\App\User::class)->create();
+    //     $thread = factory(\App\Thread::class)->create();
 
-        $response = $this->actingAs($user)
-            ->json('POST', '/replies', [
-                'body'=>'Eu sou uma respsota no forum',
-                'thread_id' => $thread->id
-            ]);
+    //     $response = $this->actingAs($user)
+    //         ->json('POST', '/replies', [
+    //             'body'=>'Eu sou uma respsota no forum',
+    //             'thread_id' => $thread->id
+    //         ]);
 
-        $reply = \App\Reply::find(1);
+    //     $reply = \App\Reply::find(1);
 
-        $response->assertStatus(200)
-            ->assertJson($reply->toArray());
-    }
+    //     $response->assertStatus(200)
+    //         ->assertJson($reply->toArray());
+    // }
 }
