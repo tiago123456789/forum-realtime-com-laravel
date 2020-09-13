@@ -14,6 +14,7 @@ pipeline {
     stages { 
         stage('Build') {
             steps { 
+                checkout scm
                 sh 'apt-get update -y && apt-get install -y libxml2-dev && apt-get install -y git'
                 sh 'curl -sS https://getcomposer.org/installer -o composer-setup.php'
                 sh 'php composer-setup.php'
